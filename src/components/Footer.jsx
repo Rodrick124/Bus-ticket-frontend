@@ -14,6 +14,7 @@ export default function Footer(){
         </div>
         <div className="text-sm text-gray-600">
           <p>About TranspoHub</p>
+          <Link to="/contact" className="hover:text-primary">Contact Us</Link>
           <p>Contact: support@transpohub.com</p>
         </div>
       </div>

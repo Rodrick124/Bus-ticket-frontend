@@ -32,7 +32,6 @@ export default function Navbar() {
     : 'bg-white shadow-sm'
   
   const linkColor = isHomePage && !isScrolled ? 'text-white' : 'text-gray-700'
-  const helpLinkColor = isHomePage && !isScrolled ? 'text-white/80' : 'text-gray-500'
 
   return (
     <header className={`py-4 transition-all duration-300 ${navClass}`}>
@@ -43,9 +42,19 @@ export default function Navbar() {
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
           <Link to="/" className={`${linkColor} hover:text-primary`}>Home</Link>
           <Link to="/buses" className={`${linkColor} hover:text-primary`}>Book</Link>
-          <a href="/contact-us" className={`${helpLinkColor}`}>Contact Us</a>
-          <Button variant="secondary">Login</Button>
-          <Button>Sign Up</Button>
+          <Link to="/contact" className={`${linkColor}`}>Contact Us</Link>
+          <Link 
+            to="/login" 
+            className={`${linkColor} hover:text-primary`}
+          >
+            Login
+          </Link>
+          <Link 
+            to="/register" 
+            className="px-4 py-2 bg-primary text-white rounded hover:bg-primary-dark transition-colors"
+          >
+            Sign Up
+          </Link>
         </nav>
       </div>
     </header>

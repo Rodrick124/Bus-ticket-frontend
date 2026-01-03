@@ -8,15 +8,19 @@ import SeatSelection from './pages/SeatSelection';
 import PassengerInfo from './pages/PassengerInfo';
 import BookingSummary from './pages/BookingSummary';
 import NotFound from './pages/NotFound';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import Contact from './pages/Contact';
 
 const MainLayout = () => {
   const location = useLocation();
+
   const isHomePage = location.pathname === '/';
 
   return (
     <div className="min-h-screen bg-background text-gray-800">
       <Navbar />
-      <main className={!isHomePage ? 'max-w-6xl mx-auto px-4 py-8' : ''}>
+      <main className={!isHomePage ? 'mx-auto' : ''}>
         <Outlet />
       </main>
       <Footer />
@@ -33,10 +37,14 @@ function App() {
         <Route path="/select-seats" element={<SeatSelection />} />
         <Route path="/passenger" element={<PassengerInfo />} />
         <Route path="/summary" element={<BookingSummary />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
       </Route>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
     </Routes>
   );
 }
 
 export default App;
+
