@@ -42,7 +42,7 @@ export default function Navbar() {
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
           <Link to="/" className={`${linkColor} hover:text-primary`}>Home</Link>
           <Link to="/buses" className={`${linkColor} hover:text-primary`}>Book</Link>
-          <a href="/contact-us" className={`${linkColor}`}>Contact Us</a>
+          <Link to="/contact" className={`${linkColor}`}>Contact Us</Link>
           <Link 
             to="/login" 
             className={`${linkColor} hover:text-primary`}

@@ -10,6 +10,7 @@ import BookingSummary from './pages/BookingSummary';
 import NotFound from './pages/NotFound';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import Contact from './pages/Contact';
 
 const MainLayout = () => {
   const location = useLocation();
@@ -36,6 +37,7 @@ function App() {
         <Route path="/select-seats" element={<SeatSelection />} />
         <Route path="/passenger" element={<PassengerInfo />} />
         <Route path="/summary" element={<BookingSummary />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
       </Route>
         <Route path="/login" element={<Login />} />
