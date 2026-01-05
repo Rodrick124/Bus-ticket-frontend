@@ -10,7 +10,7 @@
     "duration": "3h 30m",
     "price": 4500,
     "type": "Standard",
-    "seats": 40
+    "seats": 70
   },
   {
     "id": "bus_2",
@@ -23,7 +23,7 @@
     "duration": "3h 15m",
     "price": 6500,
     "type": "VIP",
-    "seats": 28
+    "seats": 70
   },
   {
     "id": "bus_3",
@@ -36,7 +36,7 @@
     "duration": "5h 30m",
     "price": 5200,
     "type": "Standard",
-    "seats": 40
+    "seats": 70
   },
   {
     "id": "bus_4",
@@ -49,7 +49,7 @@
     "duration": "5h 00m",
     "price": 5000,
     "type": "Standard",
-    "seats": 50
+    "seats": 70
   },
   {
     "id": "bus_5",
@@ -62,7 +62,7 @@
     "duration": "2h 30m",
     "price": 2500,
     "type": "Standard",
-    "seats": 45
+    "seats": 70
   },
   {
     "id": "bus_6",
@@ -75,7 +75,7 @@
     "duration": "2h 15m",
     "price": 4000,
     "type": "VIP",
-    "seats": 25
+    "seats": 70
   },
   {
     "id": "bus_7",
@@ -88,7 +88,7 @@
     "duration": "1h 30m",
     "price": 2000,
     "type": "Standard",
-    "seats": 30
+    "seats": 70
   },
   {
     "id": "bus_8",
@@ -101,7 +101,7 @@
     "duration": "3h 30m",
     "price": 4500,
     "type": "Standard",
-    "seats": 40
+    "seats": 70
   },
   {
     "id": "bus_9",
@@ -114,7 +114,7 @@
     "duration": "3h 15m",
     "price": 6500,
     "type": "VIP",
-    "seats": 28
+    "seats": 70
   },
   {
     "id": "bus_10",
@@ -127,6 +127,6 @@
     "duration": "5h 30m",
     "price": 5200,
     "type": "Standard",
-    "seats": 40
+    "seats": 70
   }
 ]
