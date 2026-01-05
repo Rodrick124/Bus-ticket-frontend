@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from 'react'
 
-// Recreated SeatMap to match the attached bus diagram.
+// SeatMap component for bus seat selection
 // Layout:
-// - Left vertical column: 7 seats (L1..L7)
-// - Top block: 3 rows x 11 cols = 33 seats (T1..T33)
-// - Middle block: 2 rows x 11 cols = 22 seats (M1..M22)
-// - Bottom-right block: 2 rows x 4 cols = 8 seats (B1..B8)
+// - 13 main rows with 2+3 seating (left: A-B, aisle, right: C-D-E)
+//   Generates seats: 1A, 1B, 1C, 1D, 1E, 2A, 2B, ... 13A, 13B, 13C, 13D, 13E (65 seats)
+// - 1 rear row with 5 seats: 14A, 14B, 14C, 14D, 14E (5 seats)
 // Total = 70 seats
 export default function SeatMap({ price = 0, booked = [], initialSelected = [], onChange }) {
-  const ROWS = 11 // 11 rows of 2+3 seats
+  const ROWS = 13 // 13 rows of 2+3 seats
   const leftLabels = ['A', 'B'] // Labels for the 2-seat group
   const rightLabels = ['C', 'D', 'E'] // Labels for the 3-seat group
-  const endLabels = ['A', 'B', 'C', 'D', 'E', 'F'] // Labels for the 6 seats at the end
+  const endLabels = ['A', 'B', 'C', 'D', 'E'] // Labels for the 5 seats at the end
 
   const [selected, setSelected] = useState(initialSelected || [])
   useEffect(() => { if (onChange) onChange(selected) }, [selected])
@@ -24,7 +23,7 @@ export default function SeatMap({ price = 0, booked = [], initialSelected = [], 
   const SeatButton = ({ seatId, rowNum }) => {
     const isBooked = booked.includes(seatId)
     const isSelected = selected.includes(seatId)
-    const base = 'w-16 h-16 rounded-lg flex flex-col items-center justify-center text-sm font-semibold transition-transform relative cursor-pointer shadow-md border'
+    const base = 'w-14 h-14 rounded-lg flex flex-col items-center justify-center text-sm font-semibold transition-transform relative cursor-pointer shadow-md border'
     const cls = isBooked
       ? 'bg-red-400 text-white cursor-not-allowed border-red-500'
       : isSelected
@@ -56,12 +55,12 @@ export default function SeatMap({ price = 0, booked = [], initialSelected = [], 
 
 
   return (
-    <div className="relative mx-auto bg-gray-100 rounded-xl shadow-lg p-4 pb-8 border border-gray-200">
+    <div className="relative mx-auto bg-gray-100 rounded-xl shadow-lg p-2 pb-8 border border-gray-200">
 
       {/* Bus interior - Main Seating (2+3 layout) */}
         <div className="bg-white rounded-lg p-4 shadow-sm border border-gray-200 mb-4 overflow-auto">
           {/* Horizontal layout: each original 'row' becomes a vertical column; columns flow left-to-right */}
-            <div className="flex gap-6 items-start">
+            <div className="flex gap-7 items-start">
               {mainRows.map(r => (
                 <div key={r.row} className="flex flex-col items-center gap-3">
                   {/* left two seats stacked */}
@@ -84,7 +83,7 @@ export default function SeatMap({ price = 0, booked = [], initialSelected = [], 
               ))}
 
               {/* Rear 6-seat block: single horizontal row, right-aligned and vertically centered */}
-              <div className="flex flex-col items-center gap-0 self-center ml-auto">
+              <div className="flex flex-col items-center gap-4 self-center ml-auto">
                 {endRowSeats.map(id => (
                   <SeatButton key={id} seatId={id} rowNum={ROWS + 1} />
                 ))}

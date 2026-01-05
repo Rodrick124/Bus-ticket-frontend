@@ -19,7 +19,7 @@ export default function SeatSelection(){
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 max-w-7xl mx-auto px-4 py-4">
       <div className="card p-4">
         <div className="flex items-center justify-between">
           <div>
@@ -32,7 +32,7 @@ export default function SeatSelection(){
         </div>
       </div>
 
-      <div className="card p-4">
+      <div className="card p-2">
         <h3 className="font-semibold mb-3">Select Seats</h3>
         <SeatMap price={bus.price} booked={booked} onChange={setSeats} initialSelected={seats} />
         <div className="mt-4 flex items-center justify-between">
