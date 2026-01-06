@@ -29,32 +29,39 @@ export default function PassengerInfo(){
     navigate('/summary', {state:{booking}})
   }
 
+  const handlePayNow = () => {
+    if (!validate()) return;
+    const booking = { bus, seats, passenger: form, total: totalCost };
+    navigate('/payment', { state: { booking } });
+  };
+
   return (
     <div className="p-4 space-y-4 max-w-7xl mx-auto px-4 py-4 grid sm:grid-cols-1 lg:grid-cols-2 gap-8">
       <div>
         <h3 className="text-2xl font-bold py-4">Passenger Information</h3>
         <form onSubmit={submit} className="grid grid-cols-1 gap-3 card p-4">
-          <input placeholder="Full Name" value={form.name} onChange={e=>setForm({...form,name:e.target.value})} className="p-2 border rounded" />
+          <input placeholder="Full Name" value={form.name} onChange={e=>setForm({...form,name:e.target.value})} className="p-2 border rounded placeholder-gray-500" />
           {errors.name && <div className="text-xs text-red-500">{errors.name}</div>}
-          <input placeholder="Phone Number" value={form.phone} onChange={e=>setForm({...form,phone:e.target.value})} className="p-2 border rounded" />
+          <input placeholder="Phone Number" value={form.phone} onChange={e=>setForm({...form,phone:e.target.value})} className="p-2 border rounded placeholder-gray-500" />
           {errors.phone && <div className="text-xs text-red-500">{errors.phone}</div>}
-          <input placeholder="Email" value={form.email} onChange={e=>setForm({...form,email:e.target.value})} className="p-2 border rounded" />
+          <input placeholder="Email" value={form.email} onChange={e=>setForm({...form,email:e.target.value})} className="p-2 border rounded placeholder-gray-500" />
           {errors.email && <div className="text-xs text-red-500">{errors.email}</div>}
-          <input placeholder="National ID / Passport" value={form.id} onChange={e=>setForm({...form,id:e.target.value})} className="p-2 border rounded" />
-          <input placeholder="Emergency Contact" value={form.emergency} onChange={e=>setForm({...form,emergency:e.target.value})} className="p-2 border rounded" />
-          <div className="text-right">
-            <Button type="submit">Confirm Reservation</Button>
+          <input placeholder="National ID / Passport" value={form.id} onChange={e=>setForm({...form,id:e.target.value})} className="p-2 border rounded placeholder-gray-500" />
+          <input placeholder="Emergency Contact" value={form.emergency} onChange={e=>setForm({...form,emergency:e.target.value})} className="p-2 border rounded placeholder-gray-500" />
+          <div className="flex justify-end items-center gap-4 py-4">
+            <Button type="submit" className="bg-red-500 text-white p-2 rounded">Confirm Reservation</Button>
+            <Button onClick={handlePayNow} type="button" className="bg-green-500 text-white p-2 rounded">Pay Now</Button>
           </div>
         </form>
       </div>
       
       <div>
-        <h3 className="text-2xl font-bold py-2">Reservation Details</h3>
-        <div className="card p-4 space-y-2">
-          <div><strong>Bus Company:</strong> {bus.company}</div>
-          <div><strong>Departure Time:</strong> {bus.departure}</div>
-          <div><strong>Seats Selected:</strong> {seats.join(', ')}</div>
-          <div className="text-lg font-bold"><strong>Total Cost:</strong> {totalCost} XAF</div>
+        <h3 className="text-3xl font-bold py-2">Reservation Details</h3>
+        <div className="card p-4 space-y-4">
+          <div className="text-lg">Bus Company: <strong>{bus.company}</strong></div>
+          <div className="text-lg">Departure Time: <strong>{bus.departure}</strong></div>
+          <div className="text-lg">Seats Selected: <strong>{seats.join(', ')}</strong></div>
+          <div className="text-lg">Total Cost: <strong>{totalCost} XAF</strong></div>
         </div>
       </div>
       
