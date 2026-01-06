@@ -7,6 +7,7 @@ import AvailableBuses from './pages/AvailableBuses';
 import SeatSelection from './pages/SeatSelection';
 import PassengerInfo from './pages/PassengerInfo';
 import BookingSummary from './pages/BookingSummary';
+import Payment from './pages/Payment';
 import NotFound from './pages/NotFound';
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -37,6 +38,7 @@ function App() {
         <Route path="/select-seats" element={<SeatSelection />} />
         <Route path="/passenger" element={<PassengerInfo />} />
         <Route path="/summary" element={<BookingSummary />} />
+        <Route path="/payment" element={<Payment />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
       </Route>
