@@ -26,15 +26,15 @@ const LoginPage = () => {
       className="flex items-center justify-center min-h-screen bg-cover bg-center"
       style={{ backgroundImage: `url(${bgImage})` }}
     >
-      <div className="w-full max-w-md p-8 space-y-6 bg-white/80 backdrop-blur-sm rounded-lg shadow-md">
+      <div className="w-full max-w-md p-8 space-y-6 bg-white/80 backdrop-blur-sm rounded-lg shadow-md dark:bg-gray-800/80">
         <img src={Logo} alt="Logo" />
-        <h2 className="text-2xl py-4 font-bold text-gray-800">Welcome back</h2>
-        <span>Sign in to manage your bookings and travel with ease.</span>
+        <h2 className="text-2xl py-4 font-bold text-gray-800 dark:text-gray-200">Welcome back</h2>
+        <span className="dark:text-gray-300">Sign in to manage your bookings and travel with ease.</span>
         <form onSubmit={handleLogin} className="space-y-6">
           <div>
             <label
               htmlFor="email"
-              className="text-sm font-medium text-gray-700"
+              className="text-sm font-medium text-gray-700 dark:text-gray-300"
             >
               Email Address
             </label>
@@ -43,7 +43,7 @@ const LoginPage = () => {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+              className="w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100 dark:placeholder-gray-400"
               placeholder="you@example.com"
               required
             />
@@ -51,7 +51,7 @@ const LoginPage = () => {
           <div>
             <label
               htmlFor="password"
-              className="text-sm font-medium text-gray-700"
+              className="text-sm font-medium text-gray-700 dark:text-gray-300"
             >
               Password
             </label>
@@ -60,7 +60,7 @@ const LoginPage = () => {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+              className="w-full px-3 py-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100 dark:placeholder-gray-400"
               placeholder="••••••••"
               required
             />
@@ -74,7 +74,7 @@ const LoginPage = () => {
             </button>
           </div>
         </form>
-        <p className="text-sm text-center text-gray-600">
+        <p className="text-sm text-center text-gray-600 dark:text-gray-300">
           Don't have an account?{' '}
           <Link to="/register" className="font-medium text-blue-500 hover:text-blue-700">
             Sign up

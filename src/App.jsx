@@ -19,7 +19,7 @@ const MainLayout = () => {
   const isHomePage = location.pathname === '/';
 
   return (
-    <div className="min-h-screen bg-background text-gray-800">
+    <div className="min-h-screen bg-background text-gray-800 dark:bg-gray-900 dark:text-gray-200">
       <Navbar />
       <main className={!isHomePage ? 'mx-auto' : ''}>
         <Outlet />

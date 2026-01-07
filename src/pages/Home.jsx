@@ -23,23 +23,23 @@ export default function Home(){
                   <h1 className="text-7xl font-extrabold">Book Your Journey, <span className="text-blue-500">Skip the Lines</span></h1>
                   <p className="m-4 w-2/3 text-xl">Fast, reliable bus ticket reservations. Choose your seat, book instantly, and travel with confidence.</p>
                   <div className="w-full md:w-4/5 lg:w-3/4 mt-8">
-                      <form onSubmit={submit} className="bg-white/90 backdrop-blur-sm p-8 rounded-md shadow-lg text-gray-800">
+                      <form onSubmit={submit} className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm p-8 rounded-md shadow-lg text-gray-800 dark:text-gray-200">
                           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-3 items-end">
                               <div className="flex flex-col items-start">
-                                  <label className="text-sm font-semibold text-gray-600 mb-1">From</label>
-                                  <input value={from} onChange={e => setFrom(e.target.value)} className="p-3 border rounded-md w-full" placeholder="Departure city" />
+                                  <label className="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-1">From</label>
+                                  <input value={from} onChange={e => setFrom(e.target.value)} className="p-3 border rounded-md w-full dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200" placeholder="Departure city" />
                               </div>
                               <div className="flex flex-col items-start">
-                                  <label className="text-sm font-semibold text-gray-600 mb-1">To</label>
-                                  <input value={to} onChange={e => setTo(e.target.value)} className="p-3 border rounded-md w-full" placeholder="Destination city" />
+                                  <label className="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-1">To</label>
+                                  <input value={to} onChange={e => setTo(e.target.value)} className="p-3 border rounded-md w-full dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200" placeholder="Destination city" />
                               </div>
                               <div className="flex flex-col items-start">
-                                  <label className="text-sm font-semibold text-gray-600 mb-1">Date</label>
-                                  <input type="date" value={date} onChange={e => setDate(e.target.value)} className="p-3 border rounded-md w-full" />
+                                  <label className="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-1">Date</label>
+                                  <input type="date" value={date} onChange={e => setDate(e.target.value)} className="p-3 border rounded-md w-full dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200" />
                               </div>
                               <div className="flex flex-col items-start">
-                                  <label className="text-sm font-semibold text-gray-600 mb-1">Passengers</label>
-                                  <input type="number" min="1" value={passengers} onChange={e => setPassengers(e.target.value)} className="p-3 border rounded-md w-full" placeholder="1" />
+                                  <label className="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-1">Passengers</label>
+                                  <input type="number" min="1" value={passengers} onChange={e => setPassengers(e.target.value)} className="p-3 border rounded-md w-full dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200" placeholder="1" />
                               </div>
                               <Button type="submit">Find Buses</Button>
                           </div>
@@ -49,17 +49,17 @@ export default function Home(){
           </section>
 
           <section className="grid grid-cols-1 md:grid-cols-3 gap-4 w-2/3 mx-auto">
-              <div className="card p-4">
-                  <h3 className="font-bold">Why TranspoHub?</h3>
-                  <p className="text-sm text-gray-600 mt-2">Fast search, clear prices, and secure reservations tailored for daily commuters.</p>
+              <div className="card p-4 dark:bg-gray-800">
+                  <h3 className="font-bold dark:text-gray-100">Why TranspoHub?</h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-300 mt-2">Fast search, clear prices, and secure reservations tailored for daily commuters.</p>
               </div>
-              <div className="card p-4">
-                  <h3 className="font-bold">Trusted Operators</h3>
-                  <p className="text-sm text-gray-600 mt-2">We partner with verified bus companies across the region.</p>
+              <div className="card p-4 dark:bg-gray-800">
+                  <h3 className="font-bold dark:text-gray-100">Trusted Operators</h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-300 mt-2">We partner with verified bus companies across the region.</p>
               </div>
-              <div className="card p-4">
-                  <h3 className="font-bold">Mobile Friendly</h3>
-                  <p className="text-sm text-gray-600 mt-2">Book quickly on the go — optimized for mobile screens.</p>
+              <div className="card p-4 dark:bg-gray-800">
+                  <h3 className="font-bold dark:text-gray-100">Mobile Friendly</h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-300 mt-2">Book quickly on the go — optimized for mobile screens.</p>
               </div>
           </section>
           <PopularRoutes />

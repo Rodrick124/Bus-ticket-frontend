@@ -28,7 +28,7 @@ export default function SeatMap({ price = 0, booked = [], initialSelected = [], 
       ? 'bg-red-400 text-white cursor-not-allowed border-red-500'
       : isSelected
         ? 'bg-blue-500 text-white border-blue-600'
-        : 'bg-green-200 text-green-800 border-green-300'
+        : 'bg-green-200 text-green-800 border-green-300 dark:bg-green-800 dark:text-green-200 dark:border-green-700'
     return (
       <button
         onClick={() => toggle(seatId)}
@@ -36,7 +36,7 @@ export default function SeatMap({ price = 0, booked = [], initialSelected = [], 
         aria-pressed={isSelected}
         className={`${base} ${cls}`}
       >
-        <span className="text-xs text-gray-600">{rowNum}</span>
+        <span className="text-xs text-gray-600 dark:text-gray-400">{rowNum}</span>
         <span className="text-sm font-bold">{seatId.replace(/^[A-Z]/, '') || seatId}</span>
       </button>
     )
@@ -55,10 +55,10 @@ export default function SeatMap({ price = 0, booked = [], initialSelected = [], 
 
 
   return (
-    <div className="relative mx-auto bg-gray-100 rounded-xl shadow-lg p-2 pb-8 border border-gray-200">
+    <div className="relative mx-auto bg-gray-100 dark:bg-gray-900 rounded-xl shadow-lg p-2 pb-8 border border-gray-200 dark:border-gray-700">
 
       {/* Bus interior - Main Seating (2+3 layout) */}
-        <div className="bg-white rounded-lg p-4 shadow-sm border border-gray-200 mb-4 overflow-auto">
+        <div className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm border border-gray-200 dark:border-gray-700 mb-4 overflow-auto">
           {/* Horizontal layout: each original 'row' becomes a vertical column; columns flow left-to-right */}
             <div className="flex gap-7 items-start">
               {mainRows.map(r => (
@@ -71,7 +71,7 @@ export default function SeatMap({ price = 0, booked = [], initialSelected = [], 
                   </div>
 
                   {/* aisle marker between left and right clusters */}
-                  <div className="w-10 h-6 bg-gray-200 rounded-md flex items-center justify-center text-xs text-gray-500">Aisle</div>
+                  <div className="w-10 h-6 bg-gray-200 dark:bg-gray-700 rounded-md flex items-center justify-center text-xs text-gray-500 dark:text-gray-400">Aisle</div>
 
                   {/* right three seats stacked */}
                   <div className="flex flex-col gap-2">
@@ -95,11 +95,11 @@ export default function SeatMap({ price = 0, booked = [], initialSelected = [], 
       {/* Legend and totals */}
       <div className="flex items-center justify-between text-sm">
         <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2"><span className="w-4 h-4 bg-green-200 rounded-sm inline-block border border-green-300"></span> Available</div>
-            <div className="flex items-center gap-2"><span className="w-4 h-4 bg-blue-500 rounded-sm inline-block border border-blue-600"></span> Selected</div>
-            <div className="flex items-center gap-2"><span className="w-4 h-4 bg-red-400 rounded-sm inline-block border border-red-500"></span> Booked</div>
+            <div className="flex items-center gap-2 text-gray-700 dark:text-gray-200"><span className="w-4 h-4 bg-green-200 dark:bg-green-800 rounded-sm inline-block border border-green-300 dark:border-green-700"></span> Available</div>
+            <div className="flex items-center gap-2 text-gray-700 dark:text-gray-200"><span className="w-4 h-4 bg-blue-500 rounded-sm inline-block border border-blue-600"></span> Selected</div>
+            <div className="flex items-center gap-2 text-gray-700 dark:text-gray-200"><span className="w-4 h-4 bg-red-400 rounded-sm inline-block border border-red-500"></span> Booked</div>
         </div>
-        <div className="text-gray-700">Selected: {selected.join(', ') || '—'} • Total: {selected.length * price} XAF</div>
+        <div className="text-gray-700 dark:text-gray-300">Selected: {selected.join(', ') || '—'} • Total: {selected.length * price} XAF</div>
       </div>
     </div>
     )
