@@ -8,29 +8,29 @@ export default function Payment() {
   if (!booking) {
     return (
       <div className="p-4 text-center">
-        <h2 className="text-2xl font-bold">Error</h2>
-        <p>No booking information found.</p>
+        <h2 className="text-2xl font-bold dark:text-white">Error</h2>
+        <p className="dark:text-gray-200">No booking information found.</p>
       </div>
     );
   }
 
   return (
     <div className="p-4 max-w-md mx-auto">
-      <h2 className="text-2xl font-bold text-center mb-4">Complete Your Payment</h2>
-      <div className="card p-4 space-y-4">
+      <h2 className="text-2xl font-bold text-center mb-4 dark:text-white">Complete Your Payment</h2>
+      <div className="card p-4 space-y-4 dark:bg-gray-800 dark:border-gray-700">
         <div>
-          <h3 className="font-semibold text-lg">Reservation Summary</h3>
-          <div className="text-sm">
+          <h3 className="font-semibold text-lg dark:text-gray-100">Reservation Summary</h3>
+          <div className="text-sm text-gray-800 dark:text-gray-200">
             <p><strong>Bus:</strong> {booking.bus?.company || 'N/A'}</p>
             <p><strong>Seats:</strong> {Array.isArray(booking.seats) ? booking.seats.join(', ') : 'N/A'}</p>
             <p><strong>Passenger:</strong> {booking.passenger?.name || 'N/A'}</p>
           </div>
         </div>
-        <div className="text-xl font-bold text-center">
+        <div className="text-xl font-bold text-center dark:text-white">
           Total: {booking.total ?? 0} XAF
         </div>
         <div className="text-center">
-          <p className="text-gray-600">This is a placeholder for the payment gateway.</p>
+          <p className="text-gray-600 dark:text-gray-300">This is a placeholder for the payment gateway.</p>
           <button className="bg-green-500 text-white font-bold py-2 px-4 rounded mt-4">
             Pay Securely
           </button>

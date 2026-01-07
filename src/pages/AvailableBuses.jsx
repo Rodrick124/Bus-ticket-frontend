@@ -30,18 +30,18 @@ export default function AvailableBuses() {
     <main className="max-w-7xl mx-auto px-4 py-8 pt-24">
       <div className="mb-8 text-center">
         <h1 className="text-4xl font-bold">Available Buses</h1>
-        <p className="text-lg text-gray-600">
+        <p className="text-lg text-gray-600 dark:text-gray-300">
           Showing routes from <span className="font-semibold text-primary">{from}</span> to <span className="font-semibold text-primary">{to}</span>
           {date && ` on ${date}`}
         </p>
       </div>
 
-      <div className="bg-white p-4 rounded-lg shadow-md mb-8 flex items-center justify-between">
+      <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md mb-8 flex items-center justify-between">
         <h3 className="text-lg font-bold">Filter Results</h3>
         <div className="flex gap-4 items-center">
           <div className="flex items-center gap-2">
             <label className="text-sm font-medium">Bus Type</label>
-            <select onChange={e => setFilter({ ...filter, type: e.target.value })} className="p-2 border rounded-md">
+            <select onChange={e => setFilter({ ...filter, type: e.target.value })} className="p-2 border rounded-md dark:bg-gray-700 dark:border-gray-600">
               <option value="all">All Types</option>
               <option value="Standard">Standard</option>
               <option value="VIP">VIP</option>
@@ -60,7 +60,7 @@ export default function AvailableBuses() {
         </div>
       ) : (
         <div className="text-center py-12">
-          <p className="text-xl text-gray-500">No buses available for this route with the selected filters.</p>
+          <p className="text-xl text-gray-500 dark:text-gray-400">No buses available for this route with the selected filters.</p>
         </div>
       )}
     </main>

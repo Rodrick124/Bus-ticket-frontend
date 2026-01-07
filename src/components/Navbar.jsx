@@ -1,10 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import Logo from '../assets/Tran-logo.png'
 import Button from './Button'
+import { ThemeContext } from '../context/ThemeContext'
+import { Sun, Moon } from 'lucide-react';
+
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
+  const { darkMode, toggleTheme } = useContext(ThemeContext);
   const location = useLocation()
   const isHomePage = location.pathname === '/'
 
@@ -27,11 +31,11 @@ export default function Navbar() {
 
   const navClass = isHomePage
     ? isScrolled
-      ? 'fixed top-0 left-0 right-0 bg-white shadow-md z-50'
+      ? 'fixed top-0 left-0 right-0 bg-white dark:bg-gray-800 shadow-md z-50'
       : 'fixed top-0 left-0 right-0 bg-transparent z-50'
-    : 'bg-white shadow-sm'
+    : 'bg-white dark:bg-gray-800 shadow-sm'
   
-  const linkColor = isHomePage && !isScrolled ? 'text-white' : 'text-gray-700'
+  const linkColor = isHomePage && !isScrolled ? 'text-white' : 'text-gray-700 dark:text-gray-300'
 
   return (
     <header className={`py-4 transition-all duration-300 ${navClass}`}>
@@ -55,7 +59,29 @@ export default function Navbar() {
           >
             Sign Up
           </Link>
+          <button
+            onClick={toggleTheme}
+            className="ml-4"
+            aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+            aria-pressed={!!darkMode}
+            type="button"
+          >
+            {darkMode ? <Sun className="text-yellow-500" aria-hidden="true" /> : <Moon className="text-gray-400" aria-hidden="true" />}
+          </button>
         </nav>
+        {/* small-screen theme toggle (visible when md:flex hides nav) */}
+        <div className="md:hidden">
+          <button
+            onClick={toggleTheme}
+            className="ml-2"
+            aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+            aria-pressed={!!darkMode}
+            type="button"
+          >
+            {darkMode ? <Sun className="text-yellow-500" aria-hidden="true" /> : <Moon className="text-gray-400" aria-hidden="true" />}
+          </button>
+        </div>
+        
       </div>
     </header>
   )
