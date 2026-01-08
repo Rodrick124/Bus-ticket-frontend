@@ -2,23 +2,39 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Logo from '../assets/Tran-logo.png'
 import bgImage from '../assets/bg.jpg';
+import users from '../data/users.json'; // Import dummy user data
+import { useAuth } from '../context/AuthContext'; // Import useAuth hook
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate();
+  const [error, setError] = useState(''); // State for error messages
+  const navigate = useNavigate(); // Keep navigate for potential local redirects, though auth will handle main flow
+  const { login } = useAuth(); // Use the login function from AuthContext
 
   const handleLogin = (e) => {
     e.preventDefault();
+    setError(''); // Clear previous errors
+
     // Basic validation
     if (!email || !password) {
-      alert('Please enter both email and password.');
+      setError('Please enter both email and password.');
       return;
     }
-    // TODO: Implement actual login logic here (e.g., API call)
-    // Authentication will be handled by API call
-    // For demonstration, navigate to home on successful login
-    navigate('/');
+
+    // Find user in dummy data
+    const user = users.find(
+      (u) => u.email === email && u.password === password
+    );
+
+    if (user) {
+      // Successful login
+      login(user); // Call login from AuthContext, which will also set localStorage
+      navigate('/dashboard/userdashboard'); // Redirect to user dashboard after login
+    } else {
+      // Failed login
+      setError('Invalid email or password.');
+    }
   };
 
   return (
@@ -65,6 +81,9 @@ const LoginPage = () => {
               required
             />
           </div>
+          {error && (
+            <p className="text-red-500 text-sm text-center">{error}</p>
+          )}
           <div>
             <button
               type="submit"

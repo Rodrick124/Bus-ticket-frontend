@@ -29,3 +29,4 @@ pnpm-debug.log*
 
 # Temporary files and coverage reports
 /coverage
+src/data/users.json

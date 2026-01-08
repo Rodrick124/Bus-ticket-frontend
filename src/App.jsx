@@ -13,6 +13,9 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Contact from './pages/Contact';
 import Help from './pages/Help';
+import UserDashboard from './pages/dashboard/userdashboard'; // Import UserDashboard
+import PrivateRoute from './components/PrivateRoute'; // Import PrivateRoute
+import { AuthProvider } from './context/AuthContext'; // Import AuthProvider
 
 const MainLayout = () => {
   const location = useLocation();
@@ -32,21 +35,27 @@ const MainLayout = () => {
 
 function App() {
   return (
-    <Routes>
-      <Route element={<MainLayout />}>
-        <Route path="/" element={<Home />} />
-        <Route path="/buses" element={<AvailableBuses />} />
-        <Route path="/select-seats" element={<SeatSelection />} />
-        <Route path="/passenger" element={<PassengerInfo />} />
-        <Route path="/summary" element={<BookingSummary />} />
-        <Route path="/payment" element={<Payment />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/help" element={<Help />} />
-        <Route path="*" element={<NotFound />} />
-      </Route>
+    <AuthProvider>
+      <Routes>
+        <Route element={<MainLayout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/buses" element={<AvailableBuses />} />
+          <Route path="/select-seats" element={<SeatSelection />} />
+          <Route path="/passenger" element={<PassengerInfo />} />
+          <Route path="/summary" element={<BookingSummary />} />
+          <Route path="/payment" element={<Payment />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/help" element={<Help />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
+          {/* Private Routes*/}
+          <Route path="/dashboard" element={<PrivateRoute />}>
+            <Route path="userdashboard" element={<UserDashboard />} />
+          </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-    </Routes>
+      </Routes>
+    </AuthProvider>
   );
 }
 
