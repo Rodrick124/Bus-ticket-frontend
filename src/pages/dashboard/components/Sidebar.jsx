@@ -1,14 +1,21 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Icon } from '@iconify/react'; 
+import { useAuth } from '../../../context/AuthContext';
 
-const Sidebar = ({ isOpen, toggleSidebar }) => {
+const Sidebar = ({ isOpen, toggleSidebar, profile: profileProp }) => {
   const navigate = useNavigate();
+  const { user } = useAuth() || {};
 
-  const profile = {
+  // Prefer the explicit prop, then fall back to authenticated user, then defaults
+  const profile = profileProp ?? (user && {
+    imageUrl: user.imageUrl ?? user.avatar ?? 'https://via.placeholder.com/150',
+    name: user.displayName ?? user.name ?? 'Guest User',
+    email: user.email ?? '',
+  }) ?? {
     imageUrl: 'https://via.placeholder.com/150',
-    name: 'John Doe',
-    email: 'john.doe@example.com',
+    name: 'Guest User',
+    email: '',
   };
 
   const navItems = [
