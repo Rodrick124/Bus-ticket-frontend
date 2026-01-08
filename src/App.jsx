@@ -12,6 +12,7 @@ import NotFound from './pages/NotFound';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Contact from './pages/Contact';
+import Help from './pages/Help';
 
 const MainLayout = () => {
   const location = useLocation();
@@ -40,6 +41,7 @@ function App() {
         <Route path="/summary" element={<BookingSummary />} />
         <Route path="/payment" element={<Payment />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/help" element={<Help />} />
         <Route path="*" element={<NotFound />} />
       </Route>
         <Route path="/login" element={<Login />} />
