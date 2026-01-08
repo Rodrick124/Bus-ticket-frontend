@@ -47,6 +47,7 @@ export default function Navbar() {
           <Link to="/" className={`${linkColor} hover:text-primary`}>Home</Link>
           <Link to="/buses" className={`${linkColor} hover:text-primary`}>Book</Link>
           <Link to="/contact" className={`${linkColor}`}>Contact Us</Link>
+          <Link to="/help" className={`${linkColor}`}>Help</Link>
           <Link 
             to="/login" 
             className={`${linkColor} hover:text-primary`}

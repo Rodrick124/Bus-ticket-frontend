@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import Button from '../components/Button'
 import PopularRoutes from '../components/PopularRoutes'
+import FAQ from '../components/FAQ'
 
 export default function Home(){
   const navigate = useNavigate()
@@ -63,6 +64,7 @@ export default function Home(){
               </div>
           </section>
           <PopularRoutes />
+          <FAQ />
       </div>
   )
 }
