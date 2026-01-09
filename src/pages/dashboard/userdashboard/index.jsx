@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import Sidebar from '../components/Sidebar';
-import DashboardNavbar from '../components/DashboardNavbar'; // Import DashboardNavbar
+import DashboardNavbar from '../components/DashboardNavbar';
+import Card from '../components/Card';
 import { useAuth } from '../../../context/AuthContext';
+import { Icon } from '@iconify/react';
 
 const UserDashboard = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -33,6 +35,13 @@ const UserDashboard = () => {
         <div className="py-8 px-10 flex-1">
           <h1 className="text-2xl font-bold">Welcome to your Dashboard!</h1>
           <p>Select an item from the sidebar to navigate.</p>
+          {/* Cards Section */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
+            <Card icon={<Icon icon="fa-solid:book" width="32" />} text="Total Booking" figure="10" />
+            <Card icon={<Icon icon="fa-solid:clock" width="32" />} text="Upcoming Trips" figure="2" />
+            <Card icon={<Icon icon="fa-solid:check-circle" width="32" />} text="Completed Trips" figure="8" />
+            <Card icon={<Icon icon="fa-solid:times-circle" width="32" />} text="Cancelled Trips" figure="0" />
+          </div>
         </div>
       </div>
     </div>
