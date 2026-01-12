@@ -64,13 +64,6 @@ const Sidebar = ({ isOpen, toggleSidebar, profile: profileProp }) => {
         </nav>
         <div className="mt-auto pt-4 border-t border-gray-700">
           <button
-            onClick={toggleTheme}
-            className="w-full flex items-center p-3 rounded-lg text-gray-300 hover:bg-gray-700 hover:text-white transition-colors duration-200 focus:outline-none"
-          >
-            <Icon icon={darkMode ? 'mdi:weather-night' : 'mdi:weather-sunny'} className="text-2xl mr-3" />
-            <span className="text-lg">{darkMode ? 'Dark Mode' : 'Light Mode'}</span>
-          </button>
-          <button
             onClick={handleLogout}
             className="w-full flex items-center p-3 rounded-lg text-gray-300 hover:bg-gray-700 hover:text-white transition-colors duration-200 focus:outline-none"
           >
