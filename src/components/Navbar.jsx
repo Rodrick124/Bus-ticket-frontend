@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import Logo from '../assets/Tran-logo.png'
 import Button from './Button'
 import { ThemeContext } from '../context/ThemeContext'
+import { useAuth } from '../context/AuthContext'
 import { Sun, Moon } from 'lucide-react';
 
 
@@ -11,6 +12,18 @@ export default function Navbar() {
   const { darkMode, toggleTheme } = useContext(ThemeContext);
   const location = useLocation()
   const isHomePage = location.pathname === '/'
+  const navigate = useNavigate()
+  const { user, isLoggedIn } = useAuth()
+
+  const getInitials = (name) => {
+    const trimmed = name?.trim();
+    if (!trimmed) return 'U';
+    const parts = trimmed.split(/\s+/).filter(Boolean);
+    const firstChar = parts[0]?.[0] ?? '';
+    const lastChar = parts.length > 1 ? parts[parts.length - 1]?.[0] ?? '' : '';
+    const initials = (firstChar + lastChar) || firstChar || 'U';
+    return initials.toUpperCase();
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,18 +61,38 @@ export default function Navbar() {
           <Link to="/buses" className={`${linkColor} hover:text-primary`}>Book</Link>
           <Link to="/contact" className={`${linkColor}`}>Contact Us</Link>
           <Link to="/help" className={`${linkColor}`}>Help</Link>
-          <Link 
-            to="/login" 
-            className={`${linkColor} hover:text-primary`}
-          >
-            Login
-          </Link>
-          <Link 
-            to="/register" 
-            className="px-4 py-2 bg-primary text-white rounded hover:bg-primary-dark transition-colors"
-          >
-            Sign Up
-          </Link>
+          {isLoggedIn ? (
+            <button
+              onClick={() => navigate('/dashboard/userdashboard')}
+              className="flex items-center gap-3 focus:outline-none"
+              aria-label="Open user dashboard"
+              title={user?.displayName || 'Profile'}
+              type="button"
+            >
+              {user?.profileImage ? (
+                <img src={user.profileImage} alt={user?.displayName || 'Profile'} className="h-9 w-9 rounded-full object-cover" />
+              ) : (
+                <div className="h-9 w-9 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-sm font-medium text-gray-700 dark:text-gray-200">
+                  {getInitials(user?.displayName)}
+                </div>
+              )}
+            </button>
+          ) : (
+            <>
+              <Link 
+                to="/login" 
+                className={`${linkColor} hover:text-primary`}
+              >
+                Login
+              </Link>
+              <Link 
+                to="/register" 
+                className="px-4 py-2 bg-primary text-white rounded hover:bg-primary-dark transition-colors"
+              >
+                Sign Up
+              </Link>
+            </>
+          )}
           <button
             onClick={toggleTheme}
             className="ml-4"
