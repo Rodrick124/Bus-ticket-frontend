@@ -22,10 +22,17 @@ export const AuthProvider = ({ children }) => {
   const login = (userData) => {
     if (!userData || typeof userData !== 'object') return;
 
+    // Helper to create a simple avatar URL when none is provided
+    const makeAvatar = (name) => {
+      const safeName = name ? String(name) : 'User';
+      return `https://ui-avatars.com/api/?name=${encodeURIComponent(safeName)}&background=0D8ABC&color=fff&rounded=true&size=128`;
+    };
+
     // Sanitize and persist only non-sensitive display fields
     const sanitized = {
       id: userData.id ?? null,
       displayName: userData.displayName ?? userData.name ?? null,
+      profileImage: userData.profileImage || makeAvatar(userData.displayName ?? userData.name),
     };
 
     setUser(sanitized);

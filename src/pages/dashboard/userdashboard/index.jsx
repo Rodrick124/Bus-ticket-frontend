@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
 import DashboardNavbar from '../components/DashboardNavbar';
 import Card from '../components/Card';
@@ -12,6 +13,7 @@ import { ThemeContext } from '../../../context/ThemeContext';
 const UserDashboard = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const { darkMode } = useContext(ThemeContext);
+  const navigate = useNavigate();
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -47,8 +49,20 @@ const UserDashboard = () => {
         <DashboardNavbar toggleSidebar={toggleSidebar} />
 
         <div className="py-8 px-10 flex-1 bg-gray-100 dark:bg-gray-900">
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Welcome to your Dashboard!</h1>
-          <p className="text-gray-600 dark:text-gray-400">Select an item from the sidebar to navigate.</p>
+          <div className="flex items-start justify-between">
+            <div>
+              <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Welcome to your Dashboard!</h1>
+              <p className="text-gray-600 dark:text-gray-400">Select an item from the sidebar to navigate.</p>
+            </div>
+            <div>
+              <button
+                onClick={() => navigate('/')}
+                className="ml-4 px-4 py-2 bg-primary text-white rounded hover:bg-primary-dark"
+              >
+                Back to site
+              </button>
+            </div>
+          </div>
           {/* Cards Section */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
             <Card icon={<Icon icon="fa-solid:book" width="32" />} text="Total Booking" figure={statistics.totalBookings} />
