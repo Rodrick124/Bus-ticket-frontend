@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Logo from '../assets/Tran-logo.png'
 import bgImage from '../assets/bg.jpg';
 import users from '../data/users.json'; // Import dummy user data
@@ -11,7 +11,6 @@ const LoginPage = () => {
   const [error, setError] = useState(''); // State for error messages
   const navigate = useNavigate(); // Keep navigate for potential local redirects, though auth will handle main flow
   const { login } = useAuth(); // Use the login function from AuthContext
-  const location = useLocation();
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -31,9 +30,7 @@ const LoginPage = () => {
     if (user) {
       // Successful login
       login(user); // Call login from AuthContext, which will also set localStorage
-      // Navigate back to the page that initiated the login, or default to dashboard
-      const destination = location.state?.from?.pathname || '/dashboard/userdashboard';
-      navigate(destination, { replace: true });
+      navigate('/dashboard/userdashboard'); // Redirect to user dashboard after login
     } else {
       // Failed login
       setError('Invalid email or password.');
