@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import Logo from '../assets/Tran-logo.png'
+import Logo from '../assets/Logo.svg'
 import Button from './Button'
 import { ThemeContext } from '../context/ThemeContext'
 import { Sun, Moon } from 'lucide-react';
