@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import Logo from '../assets/Logo.svg'
+import LogoWhite from '../assets/Logo-white.svg'
 import Button from './Button'
 import { ThemeContext } from '../context/ThemeContext'
 import { Sun, Moon } from 'lucide-react';
@@ -41,7 +42,7 @@ export default function Navbar() {
     <header className={`py-4 transition-all duration-300 ${navClass}`}>
       <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-4">
-          <img src={Logo} alt="TranspoHub" className="h-10" />
+          <img src={darkMode ? LogoWhite : Logo} alt="TranspoHub" className="h-10" />
         </Link>
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
           <Link to="/" className={`${linkColor} hover:text-primary`}>Home</Link>

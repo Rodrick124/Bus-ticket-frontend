@@ -1,13 +1,17 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import Logo from '../assets/Tran-logo.png'
+import Logo from '../assets/Logo.svg';
 import bgImage from '../assets/bg.jpg';
+import LogoWhite from '../assets/Logo-white.svg'; 
+import { ThemeContext } from '../context/ThemeContext';
 
 const RegisterPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const navigate = useNavigate();
+  const { darkMode } = useContext(ThemeContext);
+
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -21,13 +25,14 @@ const RegisterPage = () => {
     navigate('/');
   };
 
+
   return (
     <div
       className="flex items-center justify-center min-h-screen bg-cover bg-center"
       style={{ backgroundImage: `url(${bgImage})` }}
     >
       <div className="w-full max-w-md p-8 space-y-6 bg-white/80 backdrop-blur-sm rounded-lg shadow-md dark:bg-gray-800/80">
-        <img src={Logo} alt="Logo" />
+        <img src={darkMode ? LogoWhite : Logo} alt="TranspoHub logo" />
         <h2 className="text-2xl font-bold py-4 text-gray-800 dark:text-gray-200">Create your Account</h2>
         <span className="dark:text-gray-300">Join thousands of travelers booking their journey with us.</span>
         <form onSubmit={handleRegister} className="space-y-6">
