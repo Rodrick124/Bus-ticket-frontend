@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Logo from '../assets/Tran-logo.png'
 import bgImage from '../assets/bg.jpg';
-import users from '../data/users.json'; // Import dummy user data
+//import users from '../data/users.json'; // Import dummy user data
 import { useAuth } from '../context/AuthContext'; // Import useAuth hook
 
 const LoginPage = () => {
