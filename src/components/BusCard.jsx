@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { AmenitiesList } from './AmenitiesIcon'
 import Button from './Button'
+import Logos from '../assets/Logo.svg'
 
 export default function BusCard({ bus }) {
   const getTimeCategory = (departure) => {
@@ -23,14 +24,14 @@ export default function BusCard({ bus }) {
     return colors[category];
   };
 
-  const isSeatsLow = bus.availableSeats <= 5;
+  const isSeatsLow = bus.availableSeats <= 10;
 
   return (
     <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
       {/* Bus Image Container */}
       <div className="relative w-full h-48 bg-gray-300 dark:bg-gray-700 overflow-hidden group">
         <img
-          src={bus.image}
+          src={bus.image || Logos}
           alt={bus.agency}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
         />
