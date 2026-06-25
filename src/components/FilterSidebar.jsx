@@ -73,7 +73,7 @@ export default function FilterSidebar({ filters, setFilters, agencies }) {
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 h-fit sticky top-24">
+    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 h-fit sticky top-24">
       <div className="flex items-center gap-2 mb-6">
         <FiFilter className="w-5 h-5" />
         <h3 className="text-lg font-bold">Filters</h3>
@@ -87,7 +87,7 @@ export default function FilterSidebar({ filters, setFilters, agencies }) {
             <button
               key={slot.id}
               onClick={() => handleTimeToggle(slot.value)}
-              className={`px-3 py-2 rounded-full text-xs font-medium transition ${
+              className={`px-2 py-2 rounded-full text-xs font-medium transition ${
                 filters.departureTime?.includes(slot.value)
                   ? 'bg-blue-500 text-white'
                   : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
