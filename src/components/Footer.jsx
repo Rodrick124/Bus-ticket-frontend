@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import Logo from '../assets/Logo.svg';
-import LogoWhite from '../assets/Logo-white.svg'; // Import the white logo
+import Logo from '../assets/Logo.png';
+import LogoWhite from '../assets/Logo-white.png'; // Import the white logo
 import { ThemeContext } from '../context/ThemeContext'; // Import ThemeContext
 
 export default function Footer() {

@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import Logo from '../assets/Logo.svg';
-import LogoWhite from '../assets/Logo-white.svg';
-import promoImg from '../assets/Logo-white.svg';
+import Logo from '../assets/Logo.png';
+import LogoWhite from '../assets/Logo-white.png';
+import promoImg from '../assets/Logo-white.png';
 import users from '../data/users.json';
 import { useAuth } from '../context/AuthContext';
 import { ThemeContext } from '../context/ThemeContext';
@@ -59,7 +59,7 @@ const AuthPage = () => {
         {/* Left promo panel */}
         <div className="bg-gradient-to-b from-blue-900 to-blue-800 text-white p-10 relative">
           <div className="flex items-center gap-3">
-            <img src={darkMode ? LogoWhite : Logo} alt="logo" className="w-10 h-10" />
+            <img src={darkMode ? LogoWhite : Logo} alt="logo" className="h-9" />
           </div>
           <h1 className="mt-8 text-4xl font-extrabold leading-tight">Connecting Cameroon, <span className="text-yellow-400">One Ticket</span> At A Time.</h1>
           <p className="mt-4 text-sm text-blue-100 max-w-sm">Join 50,000+ travelers booking secure, comfortable bus and rail trips across the nation.</p>

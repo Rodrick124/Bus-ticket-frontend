@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import Logo from '../assets/Logo.svg'
-import LogoWhite from '../assets/Logo-white.svg'
+import Logo from '../assets/Logo.png'
+import LogoWhite from '../assets/Logo-white.png'
 import Button from './Button'
 import { ThemeContext } from '../context/ThemeContext'
 import { Sun, Moon } from 'lucide-react';

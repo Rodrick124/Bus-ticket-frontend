@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { AmenitiesList } from './AmenitiesIcon'
 import Button from './Button'
-import Logos from '../assets/Logo.svg'
+import Logos from '../assets/Logo.png'
 
 export default function BusCard({ bus }) {
   const getTimeCategory = (departure) => {
