@@ -9,8 +9,7 @@ import PassengerInfo from './pages/PassengerInfo';
 import BookingSummary from './pages/BookingSummary';
 import Payment from './pages/Payment';
 import NotFound from './pages/NotFound';
-import Login from './pages/Login';
-import Register from './pages/Register';
+import Auth from './pages/Auth';
 import Contact from './pages/Contact';
 import Help from './pages/Help';
 import UserDashboard from './pages/dashboard/userdashboard'; // Import UserDashboard
@@ -52,8 +51,8 @@ function App() {
           <Route path="/dashboard" element={<PrivateRoute />}>
             <Route path="userdashboard" element={<UserDashboard />} />
           </Route>
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Auth />} />
+        <Route path="/register" element={<Auth />} />
       </Routes>
     </AuthProvider>
   );
